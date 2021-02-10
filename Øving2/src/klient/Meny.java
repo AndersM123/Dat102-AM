@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import adt.FilmArkivADT;
 import main.Fil;
+import main.FilmArkiv;
 import main.Tekstgrensesnitt;
 
 public class Meny {
@@ -23,7 +24,26 @@ public class Meny {
 		String filnavn = "";
 		String søk;
 		String tom = null;
+		int input = scan.nextInt();
 		
+		switch(input) {
+		case 1:
+			
+		filmer = new FilmArkiv();
+		System.out.println();
+		tom = scan.nextLine();
+		filnavn = scan.nextLine();
+		Fil.skrivTilFil(filmer, filnavn);
+		break;
+		
+		case 2:
+			
+		System.out.println("Hvilket filmarkiv?");
+		tom=scan.nextLine();
+		filnavn = scan.nextLine() + ".txt";
+		filmer = Fil.lesFraFil(filmer, filnavn);
+		break;
+		}
 		
 		System.out.println("1. Søk filmtittel");
 		System.out.println("2. Søk produsent");
@@ -31,7 +51,7 @@ public class Meny {
 		System.out.println("4. Legg til film");
 		System.out.println("5. Slett film");
 		
-		int input = scan.nextInt();
+		
 		
 		switch(input) {
 			case 1:

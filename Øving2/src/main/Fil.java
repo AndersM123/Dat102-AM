@@ -13,8 +13,8 @@ public class Fil {
 	    
 	
 	//Lese et Filmarkiv fra tekstfil
-	public static void lesFraFil (FilmArkivADT filmarkiv, String filnavn) {
-		
+	public static FilmArkivADT lesFraFil (FilmArkivADT Filmarkiv, String filnavn) {
+		FilmArkivADT filmarkiv = null;
 		final String SKILLE = "#";
 		final String Test_Fil = "testing.txt";
 		
@@ -24,14 +24,15 @@ public class Fil {
 		
 		try {
 			testFil = new FileReader(Test_Fil);
+			innFil = new BufferedReader(testFil);
 		}
 		catch(FileNotFoundException unntak) {
-			System.out.println("Finner ikke filen" + Test_Fil);
+			System.out.println("Finner ikke filen " + Test_Fil);
 			System.exit(1);
 		}
 		
 		try {
-			innFil = new BufferedReader(testFil);
+			testFil = new FileReader(Test_Fil);
 			
 			String linje = innFil.readLine();
 			int n = Integer.parseInt(linje);
@@ -58,6 +59,7 @@ public class Fil {
 			System.out.println("Feil ved lesing av fil: " + e);
 			System.exit(2);
 		}
+		return filmarkiv;
 		
 	}
 	

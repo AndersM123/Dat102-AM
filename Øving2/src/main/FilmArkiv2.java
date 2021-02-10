@@ -13,8 +13,14 @@ public class FilmArkiv2 implements FilmArkivADT {
 	
 	@Override
 	public Film[] hentFilmTabell() {
-		// TODO Auto-generated method stub
-		return null;
+		Film [] tab = new Film[antall];
+		LinearNode<Film> check = start;
+		
+		for(int i = 0; i < antall; i++) {
+			tab[i] = check.getElement();
+			check = check.getNeste();
+		}
+		return tab;
 	}
 	
 	/*
@@ -104,23 +110,13 @@ public class FilmArkiv2 implements FilmArkivADT {
 		for (int i=0; i < antall; i++) {
 			if(sjanger == denne.getElement().getSjanger()) {
 				antallFilmer++;
-				i++;
 			}
 		}
 		return antallFilmer;
 	}
 	@Override
 	public int antall() {
-		int antallFilmer = 0;
-		LinearNode<Film> denne = start;
-		
-		for(int i = 0; i < antall; i++) {
-			if(denne.getNeste().getElement() != null) {
-				antallFilmer++;
-				i++;
-			}
-		}
-		return antallFilmer;
+		return antall;
 	}
 	
 	
