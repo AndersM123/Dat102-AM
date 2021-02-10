@@ -136,7 +136,3 @@ public class FilmArkiv implements FilmArkivADT {
 		
 		}
 	}
-
-	
-
-

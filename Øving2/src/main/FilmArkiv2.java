@@ -23,12 +23,7 @@ public class FilmArkiv2 implements FilmArkivADT {
 		return tab;
 	}
 	
-	/*
-	 * Her kjører en while loop, når p sin neste node ikke er tom. Da henter vi p sitt neste punkt.
-	 * så hvis det blir gjort, settes p til å bli den nye og neste tomme noden. så vi er klar for å legge til enda en ny film.
-	 * med p.setNeste(neste) bruker vi de forhåndsdefinerte variablene til å sette den nye filmen og/eller det nye elementet
-	 * på den neste ledige noden.
-	 */
+	
 	@Override
 	public void leggTilFIlm(Film nyFilm) {
 		LinearNode<Film> neste = new LinearNode<Film>();
@@ -42,10 +37,6 @@ public class FilmArkiv2 implements FilmArkivADT {
 		antall++;
 	}
 	
-	/*
-	 * Her sjekker vi i første if om det er start noden som skal slettes, hvis så, blir den slettet når vi setter start = p.getneste().
-	 * i den neste kjøres en løkke sammen med if for å 
-	 */
 	
 	@Override
 	public boolean slettFilm(int filmnr) {

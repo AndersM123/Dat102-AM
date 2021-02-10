@@ -19,12 +19,15 @@ public class Meny {
 	}
 	
 	public void start() {
+		System.out.println("1. Lag nytt filmarkiv");
+		System.out.println("2. Velg eksisterende filmarkiv: ");
 		
 		Scanner scan = new Scanner(System.in);
 		String filnavn = "";
 		String søk;
 		String tom = null;
 		int input = scan.nextInt();
+	
 		
 		switch(input) {
 		case 1:
