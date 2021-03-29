@@ -54,9 +54,9 @@ public class Meny {
 		System.out.println("4. Legg til film");
 		System.out.println("5. Slett film");
 		
+		int input2 = scan.nextInt();
 		
-		
-		switch(input) {
+		switch(input2) {
 			case 1:
 				System.out.println("Søk filmtittel: ");
 				tom = scan.nextLine();

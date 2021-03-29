@@ -14,7 +14,8 @@ public class Fil {
 	
 	//Lese et Filmarkiv fra tekstfil
 	public static FilmArkivADT lesFraFil (FilmArkivADT Filmarkiv, String filnavn) {
-		FilmArkivADT filmarkiv = null;
+		//her var feilen
+		FilmArkivADT filmarkiv = Filmarkiv;
 		final String SKILLE = "#";
 		final String Test_Fil = "testing.txt";
 		
@@ -37,19 +38,20 @@ public class Fil {
 			String linje = innFil.readLine();
 			int n = Integer.parseInt(linje);
 			
-			String post = innFil.readLine();
 			for (int i = 0; i < n; i++) {
+				String post = innFil.readLine();
 				String[] felt = post.split(SKILLE);
-				
-				int filmnr = Integer.getInteger(felt[0]);
+				int filmnr = Integer.parseInt(felt[0]);
 				String filmskaper = felt[1];
 				String tittel = felt[2];
-				int lanseringsår = Integer.getInteger(felt[3]);
+				int lanseringsår = Integer.parseInt(felt[3]);
 				Sjanger sjanger = Sjanger.valueOf(felt[4]);
 				String filmselskap = felt[5];
 				
 				Film a = new Film(filmnr, filmskaper, tittel, lanseringsår, sjanger, filmselskap);
 				System.out.println(a);
+				//viktig
+				filmarkiv.leggTilFIlm(a);
 				
 				post = innFil.readLine();
 			}
